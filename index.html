@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <style>
+         form * {
+         display: block;
+         margin: 10px;
+         }
+      </style>
+      <link rel="stylesheet" href="https://use.typekit.net/qtr4fgy.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+      <link rel="stylesheet" href="theme.css">
+      <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+      <script language="javascript">
+            function generate() {
+              // Get the snackbar DIV
+              var x = document.getElementById("snackbar");
+              var y = "##" + document.getElementById("name").value.replace(" ", "_") +
+              "##_" + [...Array(10)].map(i=>(~~(Math.random()*36)).toString(36)).join('') +
+              " Copied to Clipboard";
+              // Add the "show" class to DIV
+              x.innerHTML = y;
+                            // Create a dummy input to copy the string array inside it
+              var dummy = document.createElement("input");
+
+              // Add it to the document
+              document.body.appendChild(dummy);
+
+              // Set its ID
+              dummy.setAttribute("id", "dummy_id");
+
+              // Output the array into it
+              document.getElementById("dummy_id").value=y;
+
+              // Select it
+              dummy.select();
+
+              // Copy its contents
+              document.execCommand("copy");
+
+              // Remove it as its not needed anymore
+              document.body.removeChild(dummy);
+
+              // After 3 seconds, remove the show class from DIV
+              x.className = "show";
+              setTimeout(function(){ x.className = x.className.replace("show", ""); }, 4500);
+
+            }
+      </script>
+   </head>
+   <body id="main">
+      <p id="title">VPN Avengers Approval String Generator</p>
+      <div id="container">
+        <input id="name" value="Core Avenger Name">
+        <input type="button" onClick="generate()" value="Generate">
+      </div>
+      <div id="snackbar"></div>
+   </body>
+</html>
+
+

@@ -1,0 +1,148 @@
+
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+  visibility: hidden; /* Hidden by default. Visible on click */
+  min-width: 250px; /* Set a default minimum width */
+  margin-left: -125px; /* Divide value of min-width by 2 */
+  background-color: #428e92; /* Black background color */
+  color: #fff; /* White text color */
+  text-align: center; /* Centered text */
+  border-radius: 2px; /* Rounded borders */
+  padding: 16px; /* Padding */
+  position: fixed; /* Sit on top of the screen */
+  z-index: 1; /* Add a z-index if needed */
+  left: 50%; /* Center the snackbar */
+  bottom: 30px; /* 30px from the bottom */
+  font-family: laca-text, sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+#snackbar.show {
+  visibility: visible; /* Show the snackbar */
+  /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+  However, delay the fade out process for 2.5 seconds */
+  -webkit-animation: fadein 0.5s, fadeout 0.5s 4s;
+  animation: fadein 0.5s, fadeout 0.5s 4s;
+}
+
+/* Animations to fade the snackbar in and out */
+@-webkit-keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {bottom: 0; opacity: 0;}
+  to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {bottom: 30px; opacity: 1;}
+  to {bottom: 0; opacity: 0;}
+}
+
+body{
+  background-color: #00251a;
+  margin: 0;
+}
+
+textarea {
+  background-color: #004d40;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border-color: #39796b;
+  color: white;
+}
+
+select {
+  background-color: #004d40;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border-color: #39796b;
+  color: white;
+}
+
+option {
+  color: white;
+}
+
+p {
+  color: white;
+  margin: 5px;
+  font-family: laca-text, sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
+
+#title {
+  text-align:   center;
+  font-weight:  400;
+  font-size: 1.25em;
+  margin: 0;
+  margin-bottom: 2em;
+  padding: 5px;
+  background-color:#944444;
+}
+
+div {
+  text-align: center;
+}
+
+textarea::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+textarea::-webkit-scrollbar
+{
+  width: 10px;
+}
+
+textarea::-webkit-scrollbar-thumb
+{
+  background-color: #428e92;
+  border-radius: 5px;
+}
+
+input { 
+
+  background-color: #39796b;
+  color: white;
+  font-family: laca-text, sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  padding: 8px;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+a {
+  color: #ff8a8a;
+  margin: 5px;
+  line-height: 1.1em;
+  font-family: laca-text, sans-serif;
+  font-weight: 200;
+  font-style: normal;
+}
