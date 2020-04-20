@@ -16,9 +16,12 @@
       <script language="javascript">
             function generate() {
               // Get the snackbar DIV
+              var d = new Date;
               var x = document.getElementById("snackbar");
               var y = "##" + document.getElementById("name").value.replace(" ", "_") +
-              "##_" + [...Array(10)].map(i=>(~~(Math.random()*36)).toString(36)).join('');
+                      "##" + document.getElementById("shortDesc").value.replace(" ", "_") +
+                      "##" + ("0" + d.getDate()).slice(-2) + d.getMonth() +
+                      "##" + [...Array(10)].map(i=>(~~(Math.random()*36)).toString(36)).join('') + "##";
               // Add the "show" class to DIV
               x.innerHTML = y + " Copied to Clipboard";;
                             // Create a dummy input to copy the string array inside it
@@ -53,6 +56,7 @@
       <p id="title">VPN Avengers Approval String Generator</p>
       <div id="container">
         <input id="name" value="Core Avenger Name">
+        <input id="shortDesc" value="Description">
         <input type="button" onClick="generate()" value="Generate and Copy">
       </div>
       <div id="snackbar"></div>
