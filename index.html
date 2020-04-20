@@ -18,10 +18,9 @@
               // Get the snackbar DIV
               var x = document.getElementById("snackbar");
               var y = "##" + document.getElementById("name").value.replace(" ", "_") +
-              "##_" + [...Array(10)].map(i=>(~~(Math.random()*36)).toString(36)).join('') +
-              " Copied to Clipboard";
+              "##_" + [...Array(10)].map(i=>(~~(Math.random()*36)).toString(36)).join('');
               // Add the "show" class to DIV
-              x.innerHTML = y;
+              x.innerHTML = y + " Copied to Clipboard";;
                             // Create a dummy input to copy the string array inside it
               var dummy = document.createElement("input");
 
