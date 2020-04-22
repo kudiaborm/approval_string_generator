@@ -20,7 +20,8 @@
               var x = document.getElementById("snackbar");
               var y = "##" + document.getElementById("name").value.replace(" ", "_") +
                       "##" + document.getElementById("shortDesc").value.replace(" ", "_") +
-                      "##" + ("0" + d.getDate()).slice(-2) + d.getMonth() +
+                      "##" + ("0" + d.getDate()).slice(-2) +
+                      ("0" + (parseInt(d.getMonth()) + 1).toString().slice(-2)) +
                       "##" + [...Array(10)].map(i=>(~~(Math.random()*36)).toString(36)).join('') + "##";
               // Add the "show" class to DIV
               x.innerHTML = y + " Copied to Clipboard";;
@@ -54,10 +55,17 @@
    </head>
    <body id="main">
       <p id="title">VPN Avengers Approval String Generator</p>
-      <div id="container">
-        <input id="name" value="Core Avenger Name">
-        <input id="shortDesc" value="Description">
-        <input type="button" onClick="generate()" value="Generate and Copy">
+      <div class="row justify-content-md-center" id="container">
+        <div class="col-md-2">
+          <input id="name" placeholder="Core Avenger Name">
+        </div>
+        <div class="col-md-2">
+          <input id="shortDesc" placeholder="Chat Number">
+        </div>
+        <div class="col-md-2">
+          <input type="button" onClick="generate()" value="Generate and Copy">
+        </div>
+        </div>
       </div>
       <div id="snackbar"></div>
    </body>
