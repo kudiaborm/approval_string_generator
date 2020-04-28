@@ -19,10 +19,12 @@
               var d = new Date;
               var x = document.getElementById("snackbar");
               var y = "##" + document.getElementById("name").value.replace(" ", "_") +
-                      "##" + document.getElementById("shortDesc").value.replace(" ", "_") +
+                      "##" + document.getElementById("shortDesc").value +
+                      "##" + document.getElementById("queue").value +
                       "##" + ("0" + d.getDate()).slice(-2) +
                       ("0" + (parseInt(d.getMonth()) + 1).toString().slice(-2)) +
                       "##" + [...Array(10)].map(i=>(~~(Math.random()*36)).toString(36)).join('') + "##";
+              y = y.replace(" ", "_");
               // Add the "show" class to DIV
               x.innerHTML = y + " Copied to Clipboard";;
                             // Create a dummy input to copy the string array inside it
@@ -56,13 +58,31 @@
    <body id="main">
       <p id="title">VPN Avengers Approval String Generator</p>
       <div class="row justify-content-sm-center" id="container">
-        <div class="col-md-auto">
-          <input id="name" placeholder="Core Avenger Name">
+        <div class="col-md-auto my-1">
+          <select id="name" name="name">
+            <option value="Baltier Cortez">Baltier Cortez</option>
+            <option value="Alexander Sosa">Alexander Sosa</option>
+            <option value="Milenlie Isaza">Milenlie Isaza</option>
+            <option value="David Simmons">David Simmons</option>
+            <option value="David Osteen">David Osteen</option>
+            <option value="David Greenwood">David Greenwood</option>
+            <option value="Eddie Vega">Eddie Vega</option>
+            <option value="Marley Kudiabor">Marley Kudiabor</option>
+            <option value="Mariana Michelena Davila">Michelena Davila</option>
+          </select>
         </div>
-        <div class="col-md-auto">
+        <div class="col-md-auto my-1">
           <input id="shortDesc" placeholder="Chat Number">
         </div>
-        <div class="col-md-auto">
+        <div class="col-md-auto my-1">
+          <select id="queue">
+            <option value="Tier 3">Tier 3</option>
+            <option value="Unified Communications">Unified Communications</option>
+            <option value="Forti 2FA">Forti 2FA</option>
+            <option value="Service Desk">Service Desk</option>
+          </select>
+        </div>
+        <div class="col-md-auto my-1">
           <input type="button" onClick="generate()" value="Generate and Copy">
         </div>
         </div>
