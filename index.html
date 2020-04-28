@@ -37,7 +37,7 @@
               dummy.setAttribute("id", "dummy_id");
 
               // Output the array into it
-              document.getElementById("dummy_id").value=y + "\nPlease transfer to: " + document.getElementById("queue").value;
+              document.getElementById("dummy_id").value=y + " Please transfer to: " + document.getElementById("queue").value;
 
               // Select it
               dummy.select();
@@ -53,6 +53,29 @@
               setTimeout(function(){ x.className = x.className.replace("show", ""); }, 4500);
 
             }
+
+          function copyPW() {
+              var dummy = document.createElement("input");
+
+              // Add it to the document
+              document.body.appendChild(dummy);
+
+              // Set its ID
+              dummy.setAttribute("id", "dummy_id");
+
+              // Output the array into it\
+              document.getElementById("dummy_id").value = "The password has been reset to Covid19W@H\n\nYou will need to wait 35 minutes before you can use this password due to the server having to update this request.\n\nWe recommend the following procedure to avoid issues:\n\n1.       Clear cache and cookies on your browser\na.       Trust me, this will avoid a lot of webpage errors, password resets, and general frustration\n2.       Log into https://engage.alorica.com/\na.       This will ensure we’re using the proper format for logging in (Example: AB001234567)\n3.       Log into https://alorica.service-now.com/sp\na.       This follows the same format and passwords as engage\n4.       Go to this URL - https://alorica.service-now.com/$pwd_enrollment_form_container.do and set up self-service for the password reset.\n5. https://alorica.service-now.com/$pwd_change.do This link will let you reset the password after step 4 is done.\n\nThis will ask you for a new password and confirm and give a ticket number. This ticket may have to be approved by your manager but after that is done it will be an automatic process and you will not need to chat in.\n\nIf you have any issues after the 35 minutes has passed and the following steps have been done please chat back in. Please let us know the above steps have been done in the order given.";
+              dummy.select();
+              document.execCommand("copy");
+              document.body.removeChild(dummy);
+
+              var x = document.getElementById("snackbar");
+              x.innerHTML = "Copied";
+              x.className = "show";
+              setTimeout(function(){ x.className = x.className.replace("show", ""); }, 4500);              
+
+
+          }
       </script>
    </head>
    <body id="main">
@@ -88,10 +111,16 @@
         </div>
       </div>
       <br>
-      <p id="title2">VPN Avengers Core Links</p>
+      <p id="title2">Core Links</p>
       <div class="row justify-content-center">
           <div class="col-md-2">
               <a href="https://alorica.sharepoint.com/sites/CoreAvengers/_layouts/OneNote.aspx?id=%2Fsites%2FCoreAvengers%2FSiteAssets%2FCore%20Avengers%20Notebookonenote:https://alorica.sharepoint.com/sites/CoreAvengers/SiteAssets/Core%20Avengers%20Notebook/">One Note</a>
+          </div>
+      </div>
+      <p id="title2">Message Templates</p>
+      <div class="row justify-content-center">
+          <div class="col-md-2">
+              <input type="button" onClick="copyPW()" value="Password Reset">
           </div>
       </div>
       <div id="snackbar"></div>
