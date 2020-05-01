@@ -114,6 +114,7 @@ input {
   border-color: #39796b;
   color: white;
   width: 200px;
+  margin: .25em;
 }
 
 .column {

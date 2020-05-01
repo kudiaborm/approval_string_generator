@@ -37,7 +37,7 @@
               dummy.setAttribute("id", "dummy_id");
 
               // Output the array into it
-              document.getElementById("dummy_id").value=y + " Please transfer to: " + document.getElementById("queue").value;
+              document.getElementById("dummy_id").value=y + " Please transfer to " + document.getElementById("queue").value;
 
               // Select it
               dummy.select();
@@ -75,6 +75,28 @@
               setTimeout(function(){ x.className = x.className.replace("show", ""); }, 4500);              
 
 
+          }          
+          function copyIntune() {
+              var dummy = document.createElement("textarea");
+
+              // Add it to the document
+              document.body.appendChild(dummy);
+
+              // Set its ID
+              dummy.setAttribute("id", "dummy_id");
+
+              // Output the array into it\
+              document.getElementById("dummy_id").value = "Policy Issues\n\n\nWindows Firewall enabled with automatic scans and updates every 7 days \nWindows Defender must be the ONLY Antivirus Software enabled or installed with automatic scans and updates every 7 days \nWindows Update must be enabled to update automatically every 7 days\n\n\nOnce the above has been checked, verify that user did not try to register their device before Intune was provisioned. If they have, we need IAM's help to clear all previously registered devices and start from scratch.\n \nDuring setup of Intune, there is a step that requires 15 minutes of idle time to allow the script to do its job properly. Make sure we don't continue ahead of this or it will revert back to the same issue again and restart the IAM escalation cycle.\n\n\nOn occasion, there are times where the user might be acting ahead of Operations and is not provisioned for Intune at all yet. To reiterate, this creates the Oops error message later even after the provisioning happens. Once again, in this circumstance we forward to IAM to help clear the registered devices and tell the user to wait until provisioning is complete before retrying.\n\n\nIf the agent has gone through these steps and are back at the \"Oops\" send an email to \nIdentity&AccessManagement@alorica.com with the agent's Name, NT login and email address.\n\n\nKB - https://alorica.service-now.com/sp/?id=kb_article_view&sys_kb_id=008fa04e1b409094b89ddb1dcd4bcba0";
+              dummy.select();
+              document.execCommand("copy");
+              document.body.removeChild(dummy);
+
+              var x = document.getElementById("snackbar");
+              x.innerHTML = "Copied";
+              x.className = "show";
+              setTimeout(function(){ x.className = x.className.replace("show", ""); }, 4500);              
+
+
           }
       </script>
    </head>
@@ -83,15 +105,17 @@
       <div class="row justify-content-sm-center" id="container">
         <div class="col-md-auto my-1">
           <select id="name" name="name">
-            <option value="Baltier Cortez">Baltier Cortez</option>
             <option value="Alexander Sosa">Alexander Sosa</option>
-            <option value="Milenlie Isaza">Milenlie Isaza</option>
-            <option value="David Simmons">David Simmons</option>
-            <option value="David Osteen">David Osteen</option>
+            <option value="Allwyn David">Allwyn David</option>
+            <option value="Baltier Cortez">Baltier Cortez</option>
+            <option value="Bhushan Thakriya">Bhushan Thakriya</option>
             <option value="David Greenwood">David Greenwood</option>
+            <option value="David Osteen">David Osteen</option>
+            <option value="David Simmons">David Simmons</option>
             <option value="Eddie Vega">Eddie Vega</option>
-            <option value="Marley Kudiabor">Marley Kudiabor</option>
             <option value="Mariana Michelena Davila">Michelena Davila</option>
+            <option value="Marley Kudiabor">Marley Kudiabor</option>
+            <option value="Milenlie Isaza">Milenlie Isaza</option>
             <option value="Shefali Dhar">Shefali Dhar</option>
           </select>
         </div>
@@ -132,6 +156,7 @@
       <div class="row justify-content-center">
           <div class="col-md-2">
               <input type="button" onClick="copyPW()" value="Password Reset">
+              <input type="button" onClick="copyIntune()" value="Intune">
           </div>
       </div>
       <div id="snackbar"></div>
